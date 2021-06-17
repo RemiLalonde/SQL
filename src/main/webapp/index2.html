@@ -1,0 +1,202 @@
+<body>
+
+    <div id = "root" ></div>
+    <script src = 'https://unpkg.com/react@16.12.0/umd/react.development.js'></script>
+    <script src = 'https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js'></script>
+    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+
+    <!-- style css !-->
+
+    <style>
+
+        img {
+            margin-top: 20px;
+            margin-left: 20px;
+            max-width: 200px;
+            max-height: 200px;
+        }
+
+        .logo-udes {
+            margin-top: 0px;
+            margin-left: 0px;
+            max-width: 100px;
+            min-height: 100px;
+            border-radius: 10px;
+        }
+
+        .logo-site {
+            margin-top: 0px;
+            margin-left: 0px;
+            height: 100px;
+        }
+
+        .banderole {
+            background-color: #00a556;
+            max-height: 100px;
+            min-height: 100px;
+            margin-top: 0.5%;
+            margin-right: 0.5%;
+            margin-left: 0.5%;
+            border-radius: 10px;
+        }
+
+        a:link {
+            text-decoration: none;
+        }
+
+        a:visited {
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: none;
+        }
+
+        a:active {
+            text-decoration: none;
+        }
+
+        .col-container {
+            height: 100%
+        }
+
+        .col-1 {
+            background-color: #e8e8e8;
+            float: left;
+            width: 9%;
+            height: 87%;
+            margin: 0.5%;
+            border-radius: 10px;
+        }
+        .col-2 {
+            text-align: center;
+            float: left;
+            width: 50%;
+            height: 87%;
+            margin-top: 0.5%;
+            margin-bottom: 0.5%;
+            border-radius: 10px;
+        }
+
+        .col-3 {
+            background-color: #e8e8e8;
+            float: left;
+            width: 39%;
+            height: 87%;
+            margin: 0.5%;
+            border-radius: 10px;
+        }
+
+        .container-notification{
+            text-align: center;
+        }
+
+        @media only screen and (max-width: 760px) {
+            [class*="col-"] {
+                border-bottom-style: solid;
+                border-bottom-width: medium;
+                width: 100%;
+            }
+        }
+
+    </style>
+
+    <script type = "text/babel">
+
+        const rootElement = document.getElementById('root')
+
+        // creation des images
+
+        const imageUdeSElement =
+            <img className = "logo-udes" src="img/udes.png" alt="logo-universite">
+            </img>
+
+        const imageSiteElement =
+            <img className = "logo-site" src="img/logo2.png" alt="logo-universite">
+            </img>
+
+        // creation de la banderole
+
+        const banderoleElement =
+            <div className = "banderole">
+                <div className="col-2" style = {{margin: '0px', height: '100px', width: '0%', textAlign: 'left'}}>
+                    {imageUdeSElement}
+                </div>
+                <div className="col-2" style = {{margin: '0px', height: '100px', width: '100%', textAlign: 'center'}}>
+                    {imageSiteElement}
+                </div>
+            </div>
+
+        // creation des etats des boutons
+
+        const state = {eventCount: 0, username: 'bouton'}
+
+        // creation des element qui doivent etre updater par react
+
+        function App() {
+
+            // creation des colonnes
+
+            const colGaucheElement =
+                <div className="col-1">
+                    <span>hello world</span>
+                </div>
+
+            const colCentralElement =
+                <div className="col-2">
+
+                </div>
+
+            const colDroiteElement =
+                <div className="col-3">
+                    <p>
+                        there have been {state.eventCount} events
+                    </p>
+                    <p>
+                        <button onClick={() => setState({eventCount: state.eventCount + 1})}> click me </button>
+                    </p>
+                    <p>
+                        you typed {state.username}
+                    </p>
+                    <p>
+                        <input />
+                    </p>
+                </div>
+
+            // assemblage en fragment
+
+            const fragmentElement =
+                <React.Fragment>
+                    {banderoleElement}
+                    <div>
+                        {colGaucheElement}
+                        {colCentralElement}
+                        {colDroiteElement}
+                    </div>
+                </React.Fragment>
+
+            return (
+                <div>
+                    {fragmentElement}
+                </div>
+            )
+        }
+
+        // creation de la fonction qui permet de changer l'etat des elements a updater
+
+        function setState(newState) {
+            Object.assign(state, newState)
+            renderApp()
+        }
+
+        // creation de la fonction qui permet de re render les elements updater
+
+        function renderApp() {
+            ReactDOM.render(<App />, rootElement)
+        }
+
+        renderApp()
+
+    </script>
+
+</body>
