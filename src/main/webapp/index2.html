@@ -10,10 +10,9 @@
     <style>
 
         img {
-            margin-top: 20px;
-            margin-left: 20px;
-            max-width: 200px;
-            max-height: 200px;
+            margin: 20px;
+            max-width: 100px;
+            max-height: 100px;
         }
 
         .logo-udes {
@@ -22,12 +21,15 @@
             max-width: 100px;
             min-height: 100px;
             border-radius: 10px;
+            float: none;
         }
 
         .logo-site {
             margin-top: 0px;
             margin-left: 0px;
             height: 100px;
+            max-width: 500px;
+            float: none;
         }
 
         .banderole {
@@ -129,34 +131,80 @@
 
         // creation des etats des boutons
 
-        const state = {eventCount: 0, username: 'bouton'}
+        const stateBoutonRandom = {eventCount: 0, username: 'boutonRandom'}
 
         // creation des element qui doivent etre updater par react
 
         function App() {
 
             // creation des colonnes
+            // <iframe src="https://coder-coder.com/display-divs-side-by-side/" height="500px" width="500px" title="allo"></iframe>
 
             const colGaucheElement =
                 <div className="col-1">
-                    <span>hello world</span>
+                    <p>
+                        hello world
+                    </p>
                 </div>
+
+            const moodleElement =
+                <a href="https://www.usherbrooke.ca/moodle2-cours/" target="_blank">
+                    <img src="img/moodle.png" alt="logo" className="icon image-moodle">
+                    </img>
+                </a>
+
+            const horariusElement =
+                <a href="https://cas.usherbrooke.ca/login?service=https%3A%2F%2Fwww.gel.usherbrooke.ca%2Fhorarius%2F" target="_blank">
+                    <img src="img/horarius.png" alt="logo" className="icon image-site">
+                    </img>
+                </a>
+
+            const siteSessionElement =
+                <a href="https://cas.usherbrooke.ca/login?service=https%3a%2f%2fwww.gel.usherbrooke.ca%2fs3i%2fe21%2f" target="_blank">
+                    <img src="img/siteSession.png" alt="logo" className="icon image-site">
+                    </img>
+                </a>
+
+            const portailElement =
+                <a href="https://authentification.usherbrooke.ca/adfs/ls/" target="_blank">
+                    <img src="img/portail.jpg" alt="logo" className="icon image-site">
+                    </img>
+                </a>
+
+            const trivioElement =
+                <a href="  https://trivio.usherbrooke.ca/home.htm" target="_blank">
+                    <img src="img/trivio.jpg" alt="logo" className="icon image-site">
+                    </img>
+                </a>
+
+            const grid =
+                <Grid container spacing={1}>
+                    <Grid container item xs={12} spacing={3}>
+                        <FromRow />
+                        {moodleElement}
+                    </Grid>
+                    <Grid container item xs={12} spacing={3}>
+                        <FromRow />
+                        {portailElement}
+                    </Grid>
+                    <Grid container item xs={12} spacing={3}>
+                        <FromRow />
+                        {siteSessionElement}
+                    </Grid>
+                </Grid>
 
             const colCentralElement =
                 <div className="col-2">
-
+                    {grid}
                 </div>
 
             const colDroiteElement =
                 <div className="col-3">
                     <p>
-                        there have been {state.eventCount} events
+                        il y a eu {stateBoutonRandom.eventCount} events
                     </p>
                     <p>
-                        <button onClick={() => setState({eventCount: state.eventCount + 1})}> click me </button>
-                    </p>
-                    <p>
-                        you typed {state.username}
+                        <button onClick={() => setState({eventCount: stateBoutonRandom.eventCount + 1})}> click me </button>
                     </p>
                     <p>
                         <input />
@@ -185,7 +233,7 @@
         // creation de la fonction qui permet de changer l'etat des elements a updater
 
         function setState(newState) {
-            Object.assign(state, newState)
+            Object.assign(stateBoutonRandom, newState)
             renderApp()
         }
 
