@@ -1,3 +1,9 @@
+<head>
+    <!-- Barre de titre -->
+    <title>Hub UdeS</title>
+    <link rel="icon" href="img/logo1.png" type="image/png">
+</head>
+
 <body>
 
     <div id = "root" ></div>
@@ -49,7 +55,6 @@
         .pop-up-notification-colonne {
             text-align: center;
             margin-left: 60%;
-            margin-bottom: 5%;
             float: left;
             width: 0%;
             height: 0%;
@@ -186,12 +191,265 @@
         const stateOutlook = {compteNotifications: 0}
         const statePortail = {compteNotifications: 0}
 
-            // creation des element qui doivent etre updater par react
+        // fonction App()
 
         function App() {
 
+            // creation des pop ups
+
+            const popUpMoodleElement =
+                <p className="pop-up-notification">
+                    {stateMoodle.compteNotifications}
+                </p>
+
+            const popUpHorariusElement =
+                <p className="pop-up-notification">
+                    {stateHorarius.compteNotifications}
+                </p>
+
+            const popUpSiteSessionElement =
+                <p className="pop-up-notification">
+                    {stateSiteSession.compteNotifications}
+                </p>
+
+            const popUPortailElement =
+                <p className="pop-up-notification">
+                    {statePortail.compteNotifications}
+                </p>
+
+            const popUpTrivioElement =
+                <p className="pop-up-notification">
+                    {stateTrivio.compteNotifications}
+                </p>
+
+            const popUpOutlookElement =
+                <p className="pop-up-notification">
+                    {stateOutlook.compteNotifications}
+                </p>
+
+            // creation des icones centrales
+
+            let moodleElement
+
+            if (stateMoodle.compteNotifications > 0) {
+                moodleElement =
+                    <a href="https://www.usherbrooke.ca/moodle2-cours/" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
+                                {popUpMoodleElement}
+                            </div>
+
+                            <div className="logo-colone">
+                                <img src="img/moodle.png" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                moodle
+                            </p>
+                        </section>
+                    </a>
+            } else {
+                moodleElement =
+                    <a href="https://www.usherbrooke.ca/moodle2-cours/" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="logo-colone">
+                                <img src="img/moodle.png" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                moodle
+                            </p>
+                        </section>
+                    </a>
+            }
+
+            let horariusElement
+
+            if (stateHorarius.compteNotifications > 0) {
+                horariusElement =
+                    <a href="https://cas.usherbrooke.ca/login?service=https%3A%2F%2Fwww.gel.usherbrooke.ca%2Fhorarius%2F" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
+                                {popUpHorariusElement}
+                            </div>
+
+                            <div className="logo-colone">
+                                <img src="img/horarius.png" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                horarius
+                            </p>
+                        </section>
+                    </a>
+            } else {
+                horariusElement =
+                    <a href="https://cas.usherbrooke.ca/login?service=https%3A%2F%2Fwww.gel.usherbrooke.ca%2Fhorarius%2F" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="logo-colone">
+                                <img src="img/horarius.png" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                horarius
+                            </p>
+                        </section>
+                    </a>
+            }
+
+            let siteSessionElement
+
+            if (stateSiteSession.compteNotifications > 0) {
+                siteSessionElement =
+                    <a href="https://cas.usherbrooke.ca/login?service=https%3a%2f%2fwww.gel.usherbrooke.ca%2fs3i%2fe21%2f" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
+                                {popUpSiteSessionElement}
+                            </div>
+
+                            <div className="logo-colone">
+                                <img src="img/siteSession.png" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                site session
+                            </p>
+
+                        </section>
+                    </a>
+            } else {
+                siteSessionElement =
+                    <a href="https://cas.usherbrooke.ca/login?service=https%3a%2f%2fwww.gel.usherbrooke.ca%2fs3i%2fe21%2f" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="logo-colone">
+                                <img src="img/siteSession.png" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                site session
+                            </p>
+
+                        </section>
+                    </a>
+            }
+
+            let portailElement
+
+            if (statePortail.compteNotifications > 0) {
+                portailElement =
+                    <a href="https://authentification.usherbrooke.ca/adfs/ls/" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="pop-up-notification-colonne" style={{width: '0%', height: '0%'}}>
+                                {popUPortailElement}
+                            </div>
+
+                            <div className="logo-colone">
+                                <img src="img/portail.jpg" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                portail
+                            </p>
+                        </section>
+                    </a>
+            } else {
+                portailElement =
+                    <a href="https://authentification.usherbrooke.ca/adfs/ls/" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="logo-colone">
+                                <img src="img/portail.jpg" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                portail
+                            </p>
+                        </section>
+                    </a>
+            }
+
+            let trivioElement
+
+            if (stateTrivio.compteNotifications > 0) {
+                trivioElement =
+                    <a href="  https://trivio.usherbrooke.ca/home.htm" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
+                                {popUpTrivioElement}
+                            </div>
+
+                            <div className="logo-colone">
+                                <img src="img/trivio.jpg" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                trivio
+                            </p>
+
+                        </section>
+                    </a>
+            } else {
+                trivioElement =
+                    <a href="  https://trivio.usherbrooke.ca/home.htm" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="logo-colone">
+                                <img src="img/trivio.jpg" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                trivio
+                            </p>
+
+                        </section>
+                    </a>
+            }
+
+            let outlookElement
+
+            if (stateOutlook.compteNotifications > 0) {
+                outlookElement =
+                    <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1622688870&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dcbbeb4d7-df84-45ac-6811-15a679190571&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
+                                {popUpOutlookElement}
+                            </div>
+
+                            <div className="logo-colone">
+                                <img src="img/outlook.png" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                outlook
+                            </p>
+                        </section>
+                    </a>
+            } else {
+                outlookElement =
+                    <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1622688870&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dcbbeb4d7-df84-45ac-6811-15a679190571&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015" target="_blank">
+                        <section className="center-grid">
+
+                            <div className="logo-colone">
+                                <img src="img/outlook.png" alt="logo" style = {{marginBottom: '0px'}}/>
+                            </div>
+
+                            <p>
+                                outlook
+                            </p>
+                        </section>
+                    </a>
+            }
+
             // creation des colonnes
-            // <iframe src="https://coder-coder.com/display-divs-side-by-side/" height="500px" width="500px" title="allo"></iframe>
 
             const colGaucheElement =
                 <div className="col-1">
@@ -199,146 +457,6 @@
                         hello world
                     </p>
                 </div>
-
-            const popUpMoodleElement =
-                <p className="pop-up-notification">
-                    {stateMoodle.compteNotifications}
-                </p>
-
-            const moodleElement =
-                <a href="https://www.usherbrooke.ca/moodle2-cours/" target="_blank">
-                    <section className="center-grid">
-
-                        <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
-                            {popUpMoodleElement}
-                        </div>
-
-                        <div className="logo-colone">
-                            <img src="img/moodle.png" alt="logo" style = {{marginBottom: '0px'}}/>
-                        </div>
-
-                        <p>
-                            moodle
-                        </p>
-                    </section>
-                </a>
-
-            const popUpHorariusElement =
-                <p className="pop-up-notification">
-                    {stateHorarius.compteNotifications}
-                </p>
-
-            const horariusElement =
-                <a href="https://cas.usherbrooke.ca/login?service=https%3A%2F%2Fwww.gel.usherbrooke.ca%2Fhorarius%2F" target="_blank">
-                    <section className="center-grid">
-
-                        <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
-                            {popUpHorariusElement}
-                        </div>
-
-                        <div className="logo-colone">
-                            <img src="img/horarius.png" alt="logo" style = {{marginBottom: '0px'}}/>
-                        </div>
-
-                        <p>
-                            horarius
-                        </p>
-                    </section>
-                </a>
-
-            const popUpSiteSessionElement =
-                <p className="pop-up-notification">
-                    {stateSiteSession.compteNotifications}
-                </p>
-
-            const siteSessionElement =
-                <a href="https://cas.usherbrooke.ca/login?service=https%3a%2f%2fwww.gel.usherbrooke.ca%2fs3i%2fe21%2f" target="_blank">
-                    <section className="center-grid">
-
-                        <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
-                            {popUpSiteSessionElement}
-                        </div>
-
-                        <div className="logo-colone">
-                            <img src="img/siteSession.png" alt="logo" style = {{marginBottom: '0px'}}/>
-                        </div>
-
-                        <p>
-                            site session
-                        </p>
-
-                    </section>
-                </a>
-
-            const popUPortailElement =
-                <p className="pop-up-notification">
-                    {statePortail.compteNotifications}
-                </p>
-
-            const portailElement =
-                <a href="https://authentification.usherbrooke.ca/adfs/ls/" target="_blank">
-                    <section className="center-grid">
-
-                        <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
-                            {popUPortailElement}
-                        </div>
-
-                        <div className="logo-colone">
-                            <img src="img/portail.jpg" alt="logo" style = {{marginBottom: '0px'}}/>
-                        </div>
-
-                        <p>
-                            portail
-                        </p>
-                    </section>
-                </a>
-
-            const popUpTrivioElement =
-                <p className="pop-up-notification">
-                    {stateTrivio.compteNotifications}
-                </p>
-
-            const trivioElement =
-                <a href="  https://trivio.usherbrooke.ca/home.htm" target="_blank">
-                    <section className="center-grid">
-
-                        <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
-                            {popUpTrivioElement}
-                        </div>
-
-                        <div className="logo-colone">
-                            <img src="img/trivio.jpg" alt="logo" style = {{marginBottom: '0px'}}/>
-                        </div>
-
-                        <p>
-                            trivio
-                        </p>
-
-                    </section>
-                </a>
-
-            const popUpOutlookElement =
-                <p className="pop-up-notification">
-                    {stateOutlook.compteNotifications}
-                </p>
-
-            const outlookElement =
-                <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1622688870&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dcbbeb4d7-df84-45ac-6811-15a679190571&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015" target="_blank">
-                    <section className="center-grid">
-
-                        <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
-                            {popUpOutlookElement}
-                        </div>
-
-                        <div className="logo-colone">
-                            <img src="img/outlook.png" alt="logo" style = {{marginBottom: '0px'}}/>
-                        </div>
-
-                        <p>
-                            outlook
-                        </p>
-                    </section>
-                </a>
 
             const colCentralElement =
                 <section className="col-2">
@@ -356,13 +474,40 @@
             const colDroiteElement =
                 <div className="col-3">
                     <p>
-                        il y a eu {stateBoutonRandom.eventCount} events
+                        outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => setState({compteNotifications: stateOutlook.compteNotifications + 1})}> click me </button>
+                        <button onClick={() => setState(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})}> cree notification outlook </button>
                     </p>
                     <p>
-                        <input />
+                        portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(statePortail, {compteNotifications: statePortail.compteNotifications + 1})}> cree notification portail </button>
+                    </p>
+                    <p>
+                        trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})}> cree notification trivio </button>
+                    </p>
+                    <p>
+                        horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})}> cree notification horarius </button>
+                    </p>
+                    <p>
+                        stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})}> cree notification site session </button>
+                    </p>
+                    <p>
+                        moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})}> cree notification moodle </button>
                     </p>
                 </div>
 
@@ -387,8 +532,8 @@
 
         // creation de la fonction qui permet de changer l'etat des elements a updater
 
-        function setState(newState) {
-            Object.assign(stateOutlook, newState)
+        function setState(state, newState) {
+            Object.assign(state, newState)
             renderApp()
         }
 
