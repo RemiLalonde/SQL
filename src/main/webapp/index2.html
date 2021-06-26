@@ -11,6 +11,7 @@
     <script src = 'https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js'></script>
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
 
+
     <!-- style css !-->
 
     <style>
@@ -133,6 +134,7 @@
             height: 87%;
             margin: 0.5%;
             border-radius: 10px;
+            overflow-y: scroll;
         }
 
         .container-notification{
@@ -473,6 +475,42 @@
 
             const colDroiteElement =
                 <div className="col-3">
+                    <p>
+                        outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})}> cree notification outlook </button>
+                    </p>
+                    <p>
+                        portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(statePortail, {compteNotifications: statePortail.compteNotifications + 1})}> cree notification portail </button>
+                    </p>
+                    <p>
+                        trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})}> cree notification trivio </button>
+                    </p>
+                    <p>
+                        horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})}> cree notification horarius </button>
+                    </p>
+                    <p>
+                        stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})}> cree notification site session </button>
+                    </p>
+                    <p>
+                        moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})}> cree notification moodle </button>
+                    </p>
                     <p>
                         outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
                     </p>
