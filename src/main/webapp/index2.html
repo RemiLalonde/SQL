@@ -112,7 +112,7 @@
         .col-1 {
             background-color: #e8e8e8;
             float: left;
-            width: 9%;
+            width: 14%;
             height: 87%;
             margin: 0.5%;
             border-radius: 10px;
@@ -130,7 +130,7 @@
         .col-3 {
             background-color: #e8e8e8;
             float: left;
-            width: 39%;
+            width: 34%;
             height: 87%;
             margin: 0.5%;
             border-radius: 10px;
@@ -144,6 +144,13 @@
         .center-grid {
             float: left;
             width: 20%;
+        }
+
+        .cadre-notif {
+            border: 1px solid darkgray;
+            border-radius: 10px;
+            display: flex;
+            height: 20%;
         }
 
         @media only screen and (max-width: 760px) {
@@ -456,7 +463,40 @@
             const colGaucheElement =
                 <div className="col-1">
                     <p>
-                        hello world
+                        outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})}> cree notification outlook </button>
+                    </p>
+                    <p>
+                        portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(statePortail, {compteNotifications: statePortail.compteNotifications + 1})}> cree notification portail </button>
+                    </p>
+                    <p>
+                        trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})}> cree notification trivio </button>
+                    </p>
+                    <p>
+                        horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})}> cree notification horarius </button>
+                    </p>
+                    <p>
+                        stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})}> cree notification site session </button>
+                    </p>
+                    <p>
+                        moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => setState(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})}> cree notification moodle </button>
                     </p>
                 </div>
 
@@ -473,80 +513,20 @@
                     </div>
                 </section>
 
+            const elementCadre =
+                <div className="cadre-notif">
+
+                </div>
+
+
             const colDroiteElement =
                 <div className="col-3">
-                    <p>
-                        outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})}> cree notification outlook </button>
-                    </p>
-                    <p>
-                        portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(statePortail, {compteNotifications: statePortail.compteNotifications + 1})}> cree notification portail </button>
-                    </p>
-                    <p>
-                        trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})}> cree notification trivio </button>
-                    </p>
-                    <p>
-                        horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})}> cree notification horarius </button>
-                    </p>
-                    <p>
-                        stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})}> cree notification site session </button>
-                    </p>
-                    <p>
-                        moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})}> cree notification moodle </button>
-                    </p>
-                    <p>
-                        outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})}> cree notification outlook </button>
-                    </p>
-                    <p>
-                        portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(statePortail, {compteNotifications: statePortail.compteNotifications + 1})}> cree notification portail </button>
-                    </p>
-                    <p>
-                        trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})}> cree notification trivio </button>
-                    </p>
-                    <p>
-                        horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})}> cree notification horarius </button>
-                    </p>
-                    <p>
-                        stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})}> cree notification site session </button>
-                    </p>
-                    <p>
-                        moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})}> cree notification moodle </button>
-                    </p>
+                    {elementCadre}
+                    {elementCadre}
+                    {elementCadre}
+                    {elementCadre}
+                    {elementCadre}
+                    {elementCadre}
                 </div>
 
             // assemblage en fragment
