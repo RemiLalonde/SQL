@@ -1,3 +1,5 @@
+import CustomScroll from 'react-custom-scroll';
+
 'use strict';
 
 const e = React.createElement;
