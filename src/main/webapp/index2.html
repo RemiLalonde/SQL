@@ -16,6 +16,34 @@
 
     <style>
 
+        tbody {
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            border: 1px solid darkgray;
+            border-radius: 10px;
+            margin-top: 1px;
+            margin-left: 1px;
+            margin-right: 1px;
+            height: 8rem;
+            width: 99%;
+            text-align: center;
+        }
+
+        tr {
+            width: 100%;
+        }
+
+        td:empty {
+            display: none;
+            height: 0%
+        }
+
         img {
             margin: 20px;
             min-width: 100px;
@@ -129,7 +157,6 @@
 
         .col-3 {
             background-color: #e8e8e8;
-            float: left;
             width: 34%;
             height: 87%;
             margin: 0.5%;
@@ -151,6 +178,7 @@
             border-radius: 10px;
             display: flex;
             height: 20%;
+            width: 100%;
         }
 
         @media only screen and (max-width: 760px) {
@@ -199,6 +227,129 @@
         const stateSiteSession = {compteNotifications: 0}
         const stateOutlook = {compteNotifications: 0}
         const statePortail = {compteNotifications: 0}
+
+        const arrayNotification = [
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },{
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },{
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+        ]
+
+        const stateIndexArrayNotification = {nombreNotification: 0}
 
         // fonction App()
 
@@ -466,37 +617,49 @@
                         outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => setState(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})}> cree notification outlook </button>
+                        <button onClick={() => ReceptionNotification(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1}, 'Outlook', '2021-06-28', 'nouveau courriel', 'courriel de Domingo sur la validation')}>
+                            cree notification outlook
+                        </button>
                     </p>
                     <p>
                         portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => setState(statePortail, {compteNotifications: statePortail.compteNotifications + 1})}> cree notification portail </button>
+                        <button onClick={() => ReceptionNotification(statePortail, {compteNotifications: statePortail.compteNotifications + 1}, 'Portail', '2021-06-28', 'nouveau bulletin', 'bulletin de la session Automne 2021 sortie')}>
+                            cree notification portail
+                        </button>
                     </p>
                     <p>
                         trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => setState(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})}> cree notification trivio </button>
+                        <button onClick={() => ReceptionNotification(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1}, 'Trivio', '2021-06-28', 'nouvelle entrevue', 'entrevue a 15h le 2021-06-28 pour la companie xd')}>
+                            cree notification trivio
+                        </button>
                     </p>
                     <p>
                         horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => setState(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})}> cree notification horarius </button>
+                        <button onClick={() => ReceptionNotification(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1}, 'Horarius', '2021-06-28', 'nouveau cours', 'cours a 15h le 2021-06-28 pour le cours GIF330')}>
+                            cree notification horarius
+                        </button>
                     </p>
                     <p>
                         stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => setState(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})}> cree notification site session </button>
+                        <button onClick={() => ReceptionNotification(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1}, 'Site Session', '2021-06-28', 'nouveau document', 'guide etudiant sortit pour APP 3')}>
+                            cree notification site session
+                        </button>
                     </p>
                     <p>
                         moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => setState(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})}> cree notification moodle </button>
+                        <button onClick={() => ReceptionNotification(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1}, 'Moodle', '2021-06-28', 'nouvelle evaluation', 'nouvelle evaluation disponible pour le cours GIF330')}>
+                            cree notification moodle
+                        </button>
                     </p>
                 </div>
 
@@ -513,21 +676,97 @@
                     </div>
                 </section>
 
-            const elementCadre =
-                <div className="cadre-notif">
-
-                </div>
-
+            const tableDeNotification =
+                <table>
+                    <tbody>
+                        <tr>
+                            <td id = 'td-0'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-1'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-2'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-3'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-4'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-5'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-6'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-7'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-8'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-9'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-10'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-11'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-12'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-13'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-14'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-15'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-16'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-17'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-18'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-19'>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
 
             const colDroiteElement =
                 <div className="col-3">
-                    {elementCadre}
-                    {elementCadre}
-                    {elementCadre}
-                    {elementCadre}
-                    {elementCadre}
-                    {elementCadre}
+                    {tableDeNotification}
                 </div>
+
 
             // assemblage en fragment
 
@@ -550,16 +789,46 @@
 
         // creation de la fonction qui permet de changer l'etat des elements a updater
 
-        function setState(state, newState) {
+        function ReceptionNotification(state, newState, expediteur, date, titre, description) {
             Object.assign(state, newState)
+            CreeNotification(expediteur, titre, date, description)
+            Object.assign(stateIndexArrayNotification, {nombreNotification: (stateIndexArrayNotification.nombreNotification + 1) % 19})
             renderApp()
+        }
+
+        // creation des fonction pr remplir une notification et pour afficher le bon nombre de notification
+
+        function CreeNotification(expediteur, titre, date, description) {
+            for (i = stateIndexArrayNotification.nombreNotification; i > 0; i--) {
+                arrayNotification[i].expediteur = arrayNotification[i-1].expediteur
+                arrayNotification[i].titre = arrayNotification[i-1].titre
+                arrayNotification[i].date = arrayNotification[i-1].date
+                arrayNotification[i].description = arrayNotification[i-1].description
+            }
+            arrayNotification[0].expediteur = expediteur
+            arrayNotification[0].titre = titre
+            arrayNotification[0].date = date
+            arrayNotification[0].description = description
+        }
+
+        let idRow;
+        let i;
+        i = 0;
+
+        function AfficherNotification(){
+            for (i = 0; i < stateIndexArrayNotification.nombreNotification; i++) {
+                idRow = 'td-'+i
+                document.getElementById(idRow).innerHTML = arrayNotification[i].expediteur + ': ' + arrayNotification[i].titre + '<br>' + '<br>' + arrayNotification[i].description + '<br>' + '<br>' + arrayNotification[i].date
+            }
         }
 
         // creation de la fonction qui permet de re render les elements updater
 
         function renderApp() {
             ReactDOM.render(<App />, rootElement)
+            AfficherNotification();
         }
+
 
         renderApp()
 
