@@ -71,8 +71,9 @@
         .logo-udes {
             margin-top: 0px;
             margin-left: 0px;
-            max-width: 100px;
-            min-height: 100px;
+            max-width: 90px;
+            min-height: 90px;
+            max-height: 90px;
             border-radius: 10px;
             float: none;
             z-index: 1;
@@ -81,7 +82,7 @@
         .logo-site {
             margin-top: 0px;
             margin-left: 0px;
-            height: 100px;
+            height: 90px;
             max-width: 500px;
             border-radius: 0px;
             width: auto;
@@ -111,7 +112,7 @@
             color: #eeeeee;
             border-radius: 30px;
             background: #df1414;
-            box-shadow: -4px 4px 20px black;
+            box-shadow: -5px 5px 10px black;
 
             min-width: 30px;
             min-height: 30px;
@@ -123,8 +124,8 @@
 
         .banderole {
             background-color: #00a556;
-            max-height: 100px;
-            min-height: 100px;
+            max-height: 90px;
+            min-height: 90px;
             margin-top: 0.5%;
             margin-right: 0.5%;
             margin-left: 0.5%;
@@ -222,19 +223,19 @@
             </img>
 
         const nomutilisateur =
-            <a data-target="user-session" id="user-session-dropdown" className="dropdown-trigger">Vincent Dagenais</a>
+            <a data-target="user-session" id="user-session-dropdown" className="dropdown-trigger">Utilisateur</a>
 
         // creation de la banderole
 
         const banderoleElement =
-            <div className = "banderole">
-                <div className="col-2" style = {{margin: '0px', height: '100px', width: '33%', textAlign: 'left'}}>
+            <div className = "banderole" style = {{height: '90px'}}>
+                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'left'}}>
                     {imageUdeSElement}
                 </div>
-                <div className="col-2" style = {{margin: '0px', height: '100px', width: '33%', textAlign: 'center'}}>
+                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'center'}}>
                     {imageSiteElement}
                 </div>
-                <div className="col-2" style = {{margin: '0px', height: '100px', width: '33%', textAlign: 'right'}}>
+                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'right'}}>
                     {nomutilisateur}
                 </div>
             </div>
@@ -415,7 +416,7 @@
 
             if (stateMoodle.compteNotifications > 0) {
                 moodleElement =
-                    <a href="https://www.usherbrooke.ca/moodle2-cours/" target="_blank">
+                    <a href="https://www.usherbrooke.ca/moodle2-cours/" target="_blank" onClick={() => VisiteSite(stateMoodle, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -451,7 +452,7 @@
 
             if (stateHorarius.compteNotifications > 0) {
                 horariusElement =
-                    <a href="https://cas.usherbrooke.ca/login?service=https%3A%2F%2Fwww.gel.usherbrooke.ca%2Fhorarius%2F" target="_blank">
+                    <a href="https://cas.usherbrooke.ca/login?service=https%3A%2F%2Fwww.gel.usherbrooke.ca%2Fhorarius%2F" target="_blank" onClick={() => VisiteSite(stateHorarius, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -487,7 +488,7 @@
 
             if (stateSiteSession.compteNotifications > 0) {
                 siteSessionElement =
-                    <a href="https://cas.usherbrooke.ca/login?service=https%3a%2f%2fwww.gel.usherbrooke.ca%2fs3i%2fe21%2f" target="_blank">
+                    <a href="https://cas.usherbrooke.ca/login?service=https%3a%2f%2fwww.gel.usherbrooke.ca%2fs3i%2fe21%2f" target="_blank" onClick={() => VisiteSite(stateSiteSession, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -525,7 +526,7 @@
 
             if (statePortail.compteNotifications > 0) {
                 portailElement =
-                    <a href="https://authentification.usherbrooke.ca/adfs/ls/" target="_blank">
+                    <a href="https://authentification.usherbrooke.ca/adfs/ls/" target="_blank" onClick={() => VisiteSite(statePortail, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style={{width: '0%', height: '0%'}}>
@@ -561,7 +562,7 @@
 
             if (stateTrivio.compteNotifications > 0) {
                 trivioElement =
-                    <a href="  https://trivio.usherbrooke.ca/home.htm" target="_blank">
+                    <a href="  https://trivio.usherbrooke.ca/home.htm" target="_blank" onClick={() => VisiteSite(stateTrivio, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -599,7 +600,7 @@
 
             if (stateOutlook.compteNotifications > 0) {
                 outlookElement =
-                    <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1622688870&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dcbbeb4d7-df84-45ac-6811-15a679190571&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015" target="_blank">
+                    <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1622688870&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dcbbeb4d7-df84-45ac-6811-15a679190571&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015" target="_blank" onClick={() => VisiteSite(stateOutlook, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -694,7 +695,7 @@
                     {moodleElement}
                     {outlookElement}
                     <div>
-                        <iframe src="https://www.gel.usherbrooke.ca/horarius/" height="53%" width="95%" title="horarius"/>
+                        <iframe src="https://www.gel.usherbrooke.ca/horarius/" height="60.5%" width="95%" title="horarius" style = {{borderRadius: '10px', border: '1px solid darkgray'}}/>
                     </div>
                 </section>
 
@@ -815,6 +816,11 @@
             Object.assign(state, newState)
             CreeNotification(expediteur, titre, date, description)
             Object.assign(stateIndexArrayNotification, {nombreNotification: (stateIndexArrayNotification.nombreNotification + 1) % 19})
+            renderApp()
+        }
+
+        function VisiteSite(state, newState) {
+            Object.assign(state, newState)
             renderApp()
         }
 
