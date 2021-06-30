@@ -16,13 +16,54 @@
 
     <style>
 
+        .div-principale {
+            font-family: "Franklin Gothic Book", serif;
+            color: #2a2a2a;
+        }
+
+        p {
+            font-family: "Franklin Gothic Book", serif;
+            color: #2a2a2a;
+        }
+
+        button {
+            font-family: "Franklin Gothic Book", serif;
+            color: #2a2a2a;
+        }
+
+        tbody {
+            width: 100%;
+        }
+
+        table {
+            width: 100%;
+        }
+
+        td {
+            border: 1px solid darkgray;
+            border-radius: 10px;
+            margin-top: 1px;
+            margin-left: 1px;
+            margin-right: 1px;
+            height: 8rem;
+            width: 99%;
+            text-align: center;
+        }
+
+        tr {
+            width: 100%;
+        }
+
+        td:empty {
+            display: none;
+            height: 0%
+        }
+
         img {
-            margin: 20px;
-            min-width: 100px;
-            min-height: 100px;
-            border-radius: 100px;
+            margin: 11%;
+            min-height: 11%;
+            border-radius: 100%;
             height: 0%;
-            width: 0%;
             z-index: -1;
             position: relative;
         }
@@ -30,8 +71,9 @@
         .logo-udes {
             margin-top: 0px;
             margin-left: 0px;
-            max-width: 100px;
-            min-height: 100px;
+            max-width: 90px;
+            min-height: 90px;
+            max-height: 90px;
             border-radius: 10px;
             float: none;
             z-index: 1;
@@ -40,7 +82,7 @@
         .logo-site {
             margin-top: 0px;
             margin-left: 0px;
-            height: 100px;
+            height: 90px;
             max-width: 500px;
             border-radius: 0px;
             width: auto;
@@ -67,22 +109,23 @@
             place-items: center;
             font-weight: bold;
 
-            color: white;
-            border-radius: 40px;
-            background: #ea1414;
+            color: #eeeeee;
+            border-radius: 30px;
+            background: #df1414;
+            box-shadow: -5px 5px 10px black;
 
-            min-width: 40px;
-            min-height: 40px;
-            max-width: 40px;
-            max-height: 40px;
+            min-width: 30px;
+            min-height: 30px;
+            max-width: 30px;
+            max-height: 30px;
 
             z-index: 1;
         }
 
         .banderole {
             background-color: #00a556;
-            max-height: 100px;
-            min-height: 100px;
+            max-height: 90px;
+            min-height: 90px;
             margin-top: 0.5%;
             margin-right: 0.5%;
             margin-left: 0.5%;
@@ -112,7 +155,7 @@
         .col-1 {
             background-color: #e8e8e8;
             float: left;
-            width: 9%;
+            width: 14%;
             height: 87%;
             margin: 0.5%;
             border-radius: 10px;
@@ -129,13 +172,14 @@
 
         .col-3 {
             background-color: #e8e8e8;
+            width: 34%;
             float: left;
-            width: 39%;
             height: 87%;
             margin: 0.5%;
             border-radius: 10px;
-            overflow-y: scroll;
+            overflow-y: auto;
         }
+
 
         .container-notification{
             text-align: center;
@@ -144,6 +188,14 @@
         .center-grid {
             float: left;
             width: 20%;
+        }
+
+        .cadre-notif {
+            border: 1px solid darkgray;
+            border-radius: 10px;
+            display: flex;
+            height: 20%;
+            width: 100%;
         }
 
         @media only screen and (max-width: 760px) {
@@ -170,15 +222,21 @@
             <img className = "logo-site" src="img/logo2.png" alt="logo-universite">
             </img>
 
+        const nomutilisateur =
+            <a data-target="user-session" id="user-session-dropdown" className="dropdown-trigger">Utilisateur</a>
+
         // creation de la banderole
 
         const banderoleElement =
-            <div className = "banderole">
-                <div className="col-2" style = {{margin: '0px', height: '100px', width: '0%', textAlign: 'left'}}>
+            <div className = "banderole" style = {{height: '90px'}}>
+                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'left'}}>
                     {imageUdeSElement}
                 </div>
-                <div className="col-2" style = {{margin: '0px', height: '100px', width: '100%', textAlign: 'center'}}>
+                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'center'}}>
                     {imageSiteElement}
+                </div>
+                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'right'}}>
+                    {nomutilisateur}
                 </div>
             </div>
 
@@ -192,6 +250,129 @@
         const stateSiteSession = {compteNotifications: 0}
         const stateOutlook = {compteNotifications: 0}
         const statePortail = {compteNotifications: 0}
+
+        const arrayNotification = [
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },{
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },{
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+            {
+                expediteur: 'expediteur',
+                titre: 'titre',
+                date: 'date',
+                description: 'description'
+            },
+        ]
+
+        const stateIndexArrayNotification = {nombreNotification: 0}
 
         // fonction App()
 
@@ -235,7 +416,7 @@
 
             if (stateMoodle.compteNotifications > 0) {
                 moodleElement =
-                    <a href="https://www.usherbrooke.ca/moodle2-cours/" target="_blank">
+                    <a href="https://www.usherbrooke.ca/moodle2-cours/" target="_blank" onClick={() => VisiteSite(stateMoodle, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -271,7 +452,7 @@
 
             if (stateHorarius.compteNotifications > 0) {
                 horariusElement =
-                    <a href="https://cas.usherbrooke.ca/login?service=https%3A%2F%2Fwww.gel.usherbrooke.ca%2Fhorarius%2F" target="_blank">
+                    <a href="https://cas.usherbrooke.ca/login?service=https%3A%2F%2Fwww.gel.usherbrooke.ca%2Fhorarius%2F" target="_blank" onClick={() => VisiteSite(stateHorarius, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -307,7 +488,7 @@
 
             if (stateSiteSession.compteNotifications > 0) {
                 siteSessionElement =
-                    <a href="https://cas.usherbrooke.ca/login?service=https%3a%2f%2fwww.gel.usherbrooke.ca%2fs3i%2fe21%2f" target="_blank">
+                    <a href="https://cas.usherbrooke.ca/login?service=https%3a%2f%2fwww.gel.usherbrooke.ca%2fs3i%2fe21%2f" target="_blank" onClick={() => VisiteSite(stateSiteSession, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -345,7 +526,7 @@
 
             if (statePortail.compteNotifications > 0) {
                 portailElement =
-                    <a href="https://authentification.usherbrooke.ca/adfs/ls/" target="_blank">
+                    <a href="https://authentification.usherbrooke.ca/adfs/ls/" target="_blank" onClick={() => VisiteSite(statePortail, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style={{width: '0%', height: '0%'}}>
@@ -381,7 +562,7 @@
 
             if (stateTrivio.compteNotifications > 0) {
                 trivioElement =
-                    <a href="  https://trivio.usherbrooke.ca/home.htm" target="_blank">
+                    <a href="  https://trivio.usherbrooke.ca/home.htm" target="_blank" onClick={() => VisiteSite(stateTrivio, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -419,7 +600,7 @@
 
             if (stateOutlook.compteNotifications > 0) {
                 outlookElement =
-                    <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1622688870&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dcbbeb4d7-df84-45ac-6811-15a679190571&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015" target="_blank">
+                    <a href="https://login.live.com/login.srf?wa=wsignin1.0&rpsnv=13&ct=1622688870&rver=7.0.6737.0&wp=MBI_SSL&wreply=https%3a%2f%2foutlook.live.com%2fowa%2f%3fnlp%3d1%26RpsCsrfState%3dcbbeb4d7-df84-45ac-6811-15a679190571&id=292841&aadredir=1&CBCXT=out&lw=1&fl=dob%2cflname%2cwld&cobrandid=90015" target="_blank" onClick={() => VisiteSite(stateOutlook, {compteNotifications: 0})}>
                         <section className="center-grid">
 
                             <div className="pop-up-notification-colonne" style = {{width: '0%', height: '0%'}}>
@@ -456,7 +637,52 @@
             const colGaucheElement =
                 <div className="col-1">
                     <p>
-                        hello world
+                        outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => ReceptionNotification(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1}, 'Outlook', '2021-06-28', 'nouveau courriel', 'courriel de Domingo sur la validation')}>
+                            cree notification outlook
+                        </button>
+                    </p>
+                    <p>
+                        portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => ReceptionNotification(statePortail, {compteNotifications: statePortail.compteNotifications + 1}, 'Portail', '2021-06-28', 'nouveau bulletin', 'bulletin de la session Automne 2021 sortie')}>
+                            cree notification portail
+                        </button>
+                    </p>
+                    <p>
+                        trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => ReceptionNotification(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1}, 'Trivio', '2021-06-28', 'nouvelle entrevue', 'entrevue a 15h le 2021-06-28 pour la companie xd')}>
+                            cree notification trivio
+                        </button>
+                    </p>
+                    <p>
+                        horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => ReceptionNotification(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1}, 'Horarius', '2021-06-28', 'nouveau cours', 'cours a 15h le 2021-06-28 pour le cours GIF330')}>
+                            cree notification horarius
+                        </button>
+                    </p>
+                    <p>
+                        stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => ReceptionNotification(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1}, 'Site Session', '2021-06-28', 'nouveau document', 'guide etudiant sortit pour APP 3')}>
+                            cree notification site session
+                        </button>
+                    </p>
+                    <p>
+                        moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
+                    </p>
+                    <p>
+                        <button onClick={() => ReceptionNotification(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1}, 'Moodle', '2021-06-28', 'nouvelle evaluation', 'nouvelle evaluation disponible pour le cours GIF330')}>
+                            cree notification moodle
+                        </button>
                     </p>
                 </div>
 
@@ -469,85 +695,101 @@
                     {moodleElement}
                     {outlookElement}
                     <div>
-                        <iframe src="https://www.gel.usherbrooke.ca/horarius/" height="53%" width="95%" title="allo"/>
+                        <iframe src="https://www.gel.usherbrooke.ca/horarius/" height="60.5%" width="95%" title="horarius" style = {{borderRadius: '10px', border: '1px solid darkgray'}}/>
                     </div>
                 </section>
 
+            const tableDeNotification =
+                <table>
+                    <tbody>
+                        <tr>
+                            <td id = 'td-0'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-1'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-2'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-3'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-4'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-5'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-6'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-7'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-8'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-9'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-10'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-11'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-12'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-13'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-14'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-15'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-16'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-17'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-18'>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td id = 'td-19'>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
             const colDroiteElement =
-                <div className="col-3">
-                    <p>
-                        outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})}> cree notification outlook </button>
-                    </p>
-                    <p>
-                        portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(statePortail, {compteNotifications: statePortail.compteNotifications + 1})}> cree notification portail </button>
-                    </p>
-                    <p>
-                        trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})}> cree notification trivio </button>
-                    </p>
-                    <p>
-                        horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})}> cree notification horarius </button>
-                    </p>
-                    <p>
-                        stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})}> cree notification site session </button>
-                    </p>
-                    <p>
-                        moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})}> cree notification moodle </button>
-                    </p>
-                    <p>
-                        outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})}> cree notification outlook </button>
-                    </p>
-                    <p>
-                        portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(statePortail, {compteNotifications: statePortail.compteNotifications + 1})}> cree notification portail </button>
-                    </p>
-                    <p>
-                        trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})}> cree notification trivio </button>
-                    </p>
-                    <p>
-                        horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})}> cree notification horarius </button>
-                    </p>
-                    <p>
-                        stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})}> cree notification site session </button>
-                    </p>
-                    <p>
-                        moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
-                    </p>
-                    <p>
-                        <button onClick={() => setState(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})}> cree notification moodle </button>
-                    </p>
+                <div className="col-3" id='scrollbarnotid'>
+                    {tableDeNotification}
                 </div>
+
 
             // assemblage en fragment
 
@@ -562,7 +804,7 @@
                 </React.Fragment>
 
             return (
-                <div>
+                <div className="div-principale">
                     {fragmentElement}
                 </div>
             )
@@ -570,16 +812,51 @@
 
         // creation de la fonction qui permet de changer l'etat des elements a updater
 
-        function setState(state, newState) {
+        function ReceptionNotification(state, newState, expediteur, date, titre, description) {
+            Object.assign(state, newState)
+            CreeNotification(expediteur, titre, date, description)
+            Object.assign(stateIndexArrayNotification, {nombreNotification: (stateIndexArrayNotification.nombreNotification + 1) % 19})
+            renderApp()
+        }
+
+        function VisiteSite(state, newState) {
             Object.assign(state, newState)
             renderApp()
+        }
+
+        // creation des fonction pr remplir une notification et pour afficher le bon nombre de notification
+
+        function CreeNotification(expediteur, titre, date, description) {
+            for (i = stateIndexArrayNotification.nombreNotification; i > 0; i--) {
+                arrayNotification[i].expediteur = arrayNotification[i-1].expediteur
+                arrayNotification[i].titre = arrayNotification[i-1].titre
+                arrayNotification[i].date = arrayNotification[i-1].date
+                arrayNotification[i].description = arrayNotification[i-1].description
+            }
+            arrayNotification[0].expediteur = expediteur
+            arrayNotification[0].titre = titre
+            arrayNotification[0].date = date
+            arrayNotification[0].description = description
+        }
+
+        let idRow;
+        let i;
+        i = 0;
+
+        function AfficherNotification(){
+            for (i = 0; i < stateIndexArrayNotification.nombreNotification; i++) {
+                idRow = 'td-'+i
+                document.getElementById(idRow).innerHTML = arrayNotification[i].expediteur + ': ' + arrayNotification[i].titre + '<br>' + '<br>' + arrayNotification[i].description + '<br>' + '<br>' + arrayNotification[i].date
+            }
         }
 
         // creation de la fonction qui permet de re render les elements updater
 
         function renderApp() {
-            ReactDOM.render(<App />, rootElement)
+            ReactDOM.render(<App/>,rootElement)
+            AfficherNotification();
         }
+
 
         renderApp()
 
