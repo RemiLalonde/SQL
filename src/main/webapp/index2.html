@@ -10,6 +10,7 @@
     <script src = 'https://unpkg.com/react@16.12.0/umd/react.development.js'></script>
     <script src = 'https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js'></script>
     <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 
     <!-- style css !-->
@@ -640,7 +641,7 @@
                         outlook a {stateOutlook.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => ReceptionNotification(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1}, 'Outlook', '2021-06-28', 'nouveau courriel', 'courriel de Domingo sur la validation')}>
+                        <button onClick={() => ReceptionNotification('Outlook', '2021-06-28', 'nouveau courriel', 'courriel de Domingo sur la validation')}>
                             cree notification outlook
                         </button>
                     </p>
@@ -648,7 +649,7 @@
                         portail a {statePortail.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => ReceptionNotification(statePortail, {compteNotifications: statePortail.compteNotifications + 1}, 'Portail', '2021-06-28', 'nouveau bulletin', 'bulletin de la session Automne 2021 sortie')}>
+                        <button onClick={() => ReceptionNotification('Portail', '2021-06-28', 'nouveau bulletin', 'bulletin de la session Automne 2021 sortie')}>
                             cree notification portail
                         </button>
                     </p>
@@ -656,7 +657,7 @@
                         trivio a {stateTrivio.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => ReceptionNotification(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1}, 'Trivio', '2021-06-28', 'nouvelle entrevue', 'entrevue a 15h le 2021-06-28 pour la companie xd')}>
+                        <button onClick={() => ReceptionNotification('Trivio', '2021-06-28', 'nouvelle entrevue', 'entrevue a 15h le 2021-06-28 pour la companie xd')}>
                             cree notification trivio
                         </button>
                     </p>
@@ -664,7 +665,7 @@
                         horarius a {stateHorarius.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => ReceptionNotification(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1}, 'Horarius', '2021-06-28', 'nouveau cours', 'cours a 15h le 2021-06-28 pour le cours GIF330')}>
+                        <button onClick={() => ReceptionNotification('Horarius', '2021-06-28', 'nouveau cours', 'cours a 15h le 2021-06-28 pour le cours GIF330')}>
                             cree notification horarius
                         </button>
                     </p>
@@ -672,7 +673,7 @@
                         stie session a {stateSiteSession.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => ReceptionNotification(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1}, 'Site Session', '2021-06-28', 'nouveau document', 'guide etudiant sortit pour APP 3')}>
+                        <button onClick={() => ReceptionNotification('Site Session', '2021-06-28', 'nouveau document', 'guide etudiant sortit pour APP 3')}>
                             cree notification site session
                         </button>
                     </p>
@@ -680,7 +681,7 @@
                         moodle a {stateMoodle.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => ReceptionNotification(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1}, 'Moodle', '2021-06-28', 'nouvelle evaluation', 'nouvelle evaluation disponible pour le cours GIF330')}>
+                        <button onClick={() => ReceptionNotification('Moodle', '2021-06-28', 'nouvelle evaluation', 'nouvelle evaluation disponible pour le cours GIF330')}>
                             cree notification moodle
                         </button>
                     </p>
@@ -812,9 +813,21 @@
 
         // creation de la fonction qui permet de changer l'etat des elements a updater
 
-        function ReceptionNotification(state, newState, expediteur, date, titre, description) {
-            Object.assign(state, newState)
+        function ReceptionNotification(expediteur, date, titre, description) {
             CreeNotification(expediteur, titre, date, description)
+            if (expediteur === "Horarius") {
+                Object.assign(stateHorarius, {compteNotifications: stateHorarius.compteNotifications + 1})
+            } else if (expediteur === "Site Session") {
+                Object.assign(stateSiteSession, {compteNotifications: stateSiteSession.compteNotifications + 1})
+            } else if (expediteur === "Trivio") {
+                Object.assign(stateTrivio, {compteNotifications: stateTrivio.compteNotifications + 1})
+            } else if (expediteur === "Moodle") {
+                Object.assign(stateMoodle, {compteNotifications: stateMoodle.compteNotifications + 1})
+            } else if (expediteur === "Portail") {
+                Object.assign(statePortail, {compteNotifications: statePortail.compteNotifications + 1})
+            } else if (expediteur === "Outlook") {
+                Object.assign(stateOutlook, {compteNotifications: stateOutlook.compteNotifications + 1})
+            }
             Object.assign(stateIndexArrayNotification, {nombreNotification: (stateIndexArrayNotification.nombreNotification + 1) % 19})
             renderApp()
         }
@@ -843,10 +856,10 @@
         let i;
         i = 0;
 
-        function AfficherNotification(){
+        function AfficherNotification() {
             for (i = 0; i < stateIndexArrayNotification.nombreNotification; i++) {
                 idRow = 'td-'+i
-                document.getElementById(idRow).innerHTML = arrayNotification[i].expediteur + ': ' + arrayNotification[i].titre + '<br>' + '<br>' + arrayNotification[i].description + '<br>' + '<br>' + arrayNotification[i].date
+                document.getElementById(idRow).innerHTML = '<a href="https://trivio.usherbrooke.ca/home.htm" target="_blank">' + arrayNotification[i].expediteur + ': ' + arrayNotification[i].titre + '<br>' + '<br>' + arrayNotification[i].description + '<br>' + '<br>' + arrayNotification[i].date + '<a/>'
             }
         }
 
@@ -855,8 +868,30 @@
         function renderApp() {
             ReactDOM.render(<App/>,rootElement)
             AfficherNotification();
+            OpenPage()
         }
 
+        function OpenPage() {
+            $.ajax({
+                url: "https://monportail.usherbrooke.ca/api/mail/messages",
+                type: 'GET',
+                dataType: 'jsonp',
+                contentType: 'text/plain',
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'X-Content-Type-Options': 'application/json'
+                },
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader ("Authorization", "Basic " + btoa(""));
+                    xhr.setRequestHeader("Access-Control-Allow-Headers", "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers");
+                },
+                success: function (data) {
+                    console.log(data.organizations[0].name);
+                    var organisation = data.organizations[0].name;
+                    $("#company").text(organisation);
+                }
+            });
+        }
 
         renderApp()
 
