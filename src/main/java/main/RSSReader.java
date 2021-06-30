@@ -70,7 +70,7 @@ public class RSSReader {
                 }
 
                 if(date != null && description != null && url != null && id != null){
-                    notif.insertRSS(notif.getId(), notif.getDate(), notif.getDescription(), 3, notif.getLien());
+                    notif.insert(notif.getId(), notif.getDate(), notif.getDescription(), 3, notif.getLien());
                     date = null;
                     description = null;
                     url = null;

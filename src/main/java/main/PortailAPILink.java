@@ -1,23 +1,19 @@
 package main;
 
-import java.io.BufferedReader;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.net.URL;
-import java.util.stream.Collectors;
+import java.sql.SQLException;
 
 public class PortailAPILink {
 
-    public static void main(String[] args) throws IOException {
-        getEmails();
-    }
-
-    public static String getEmails() throws IOException {
-        URL apiURL = new URL("https://monportail.usherbrooke.ca/api/mail/messages");
-        BufferedReader in = new BufferedReader(new InputStreamReader(apiURL.openStream()));
-        for(String s : (String[])in.lines().toArray()){
-            System.out.println(s);
+    public void getEmails(String json) throws IOException, SQLException {
+        for(JsonElement e : JsonParser.parseString(json).getAsJsonArray()){
+            Notification notif = new Notification();
+            notif.insert(e.getAsJsonObject().get("id").toString(), e.getAsJsonObject().get("receivedDateTime").toString(),
+                    e.getAsJsonObject().get("subject").toString(), 2, e.getAsJsonObject().get("webLink").toString());
         }
-        return in.readLine();
     }
 }

@@ -15,7 +15,7 @@ public class Notification {
 
     private final String INSERT_NOTIFICATION_SQL = "INSERT INTO notification VALUES(?, ?, ?, ?, ?)";
 
-    public void insertRSS(String id, String date, String description, int expediteur, String lien) throws SQLException{
+    public void insert(String id, String date, String description, int expediteur, String lien) throws SQLException{
         System.out.println(INSERT_NOTIFICATION_SQL);
         date = this.date;
         description = this.description;
