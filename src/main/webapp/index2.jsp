@@ -786,7 +786,7 @@
                         teams a {stateTeams.compteNotifications} nouvelle(s) notification(s)
                     </p>
                     <p>
-                        <button onClick={() => ReceptionNotification('Teams', '2021-06-28', 'nouvelle reunion', 'nouvelle reunion a 15h le 2021-06-28 avec le groupe ProjetS3', 'https://teams.microsoft.com/_?culture=en-ca&country=CA&lm=deeplink&lmsrc=NeutralHomePageWeb&cmpid=WebSignIn')}>
+                        <button onClick={() => TestFunction()}>
                             cree notification teams
                         </button>
                     </p>
@@ -965,6 +965,11 @@
         let idRow;
         let i;
         i = 0;
+
+        function TestFunction(){
+            <jsp:useBean id="apilink" scope="request" class="main.PortailAPILink"/>
+            ReceptionNotification("<%=apilink.getExpediteur()%>", "<%=apilink.getDate()%>","<%=apilink.getTitre()%>","<%=apilink.getDescription()%>","https://monportail.usherbrooke.ca");
+        }
 
         function AfficherNotification() {
             for (i = 0; i < stateIndexArrayNotification.nombreNotification; i++) {
