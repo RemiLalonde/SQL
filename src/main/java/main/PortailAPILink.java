@@ -9,10 +9,11 @@ import java.sql.SQLException;
 
 public class PortailAPILink {
 
-    public String expediteur = "Horarius";
+    public String expediteur = "Teams";
     public String date = "2020-11-08";
-    public String description = "wtf flo";
-    public String titre = "trop de monde chez nous";
+    public String description = "nouvelle reunion a 15h le 2021-06-28 avec le groupe ProjetS3";
+    public String titre = "nouvelle reunion";
+    public String link = "https://teams.microsoft.com/_?culture=en-ca&country=CA&lm=deeplink&lmsrc=NeutralHomePageWeb&cmpid=WebSignIn";
 
     public void getEmails(String json) throws IOException, SQLException {
         for(JsonElement e : JsonParser.parseString(json).getAsJsonArray()){
@@ -36,5 +37,9 @@ public class PortailAPILink {
 
     public String getTitre(){
         return this.titre;
+    }
+
+    public String getLink(){
+        return this.link;
     }
 }

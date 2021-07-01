@@ -6,275 +6,305 @@
 
 <body>
 
-    <div id = "root" ></div>
-    <script src = 'https://unpkg.com/react@16.12.0/umd/react.development.js'></script>
-    <script src = 'https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js'></script>
-    <script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<div id = "root" ></div>
+<script src = 'https://unpkg.com/react@16.12.0/umd/react.development.js'></script>
+<script src = 'https://unpkg.com/react-dom@16.12.0/umd/react-dom.development.js'></script>
+<script src="https://unpkg.com/@babel/standalone@7.8.3/babel.js"></script>
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
 
 
-    <!-- style css !-->
+<!-- style css !-->
 
-    <style>
+<style>
 
-        .div-principale {
-            font-family: "Franklin Gothic Book", serif;
-            color: #3d3d3d;
-            font-size: 105%;
-        }
+    .div-principale {
+        font-family: "Franklin Gothic Book", serif;
+        color: #3d3d3d;
+        font-size: 105%;
+    }
 
-        p {
-            font-family: "Franklin Gothic Book", serif;
-            color: #3d3d3d;
-            font-size: 105%;
-        }
+    p {
+        font-family: "Franklin Gothic Book", serif;
+        color: #3d3d3d;
+        font-size: 105%;
+    }
 
-        button {
-            font-family: "Franklin Gothic Book", serif;
-            color: #3d3d3d;
-            font-size: 105%;
-            border: 1px solid darkgray;
-            background-color: transparent;
-            border-radius: 10px;
-        }
+    .p-banderole {
+        color: #e8e8e8;
+        width: 0%;
+        z-index: 1;
+    }
 
-        button:hover {
-            border: 1px solid darkgray;
-            background-color: #d8d8d8;
-        }
+    button {
+        font-family: "Franklin Gothic Book", serif;
+        color: #3d3d3d;
+        font-size: 105%;
+        border: 1px solid darkgray;
+        background-color: transparent;
+        border-radius: 10px;
+    }
 
-        .boutton-notification {
-            border-radius: 10px;
-            text-align: center;
-            width:100%;
-            height: 100%;
-            background-color: transparent;
-            border: 1px solid darkgray;
-        }
+    button:hover {
+        border: 1px solid darkgray;
+        background-color: #d8d8d8;
+    }
 
-        tbody {
+    .boutton-notification {
+        border-radius: 10px;
+        text-align: center;
+        width:100%;
+        height: 100%;
+        background-color: transparent;
+        border: 1px solid darkgray;
+    }
+
+    tbody {
+        width: 100%;
+    }
+
+    table {
+        width: 100%;
+        font-family: "Franklin Gothic Book", serif;
+        color: #3d3d3d;
+        font-size: 105%;
+    }
+
+    td {
+        border-radius: 10px;
+        height: 8rem;
+        width: 99%;
+        text-align: center;
+    }
+
+    td:hover {
+        background-color: #d8d8d8;
+    }
+
+    tr {
+        width: 100%;
+    }
+
+    td:empty {
+        display: none;
+        height: 0%
+    }
+
+    img {
+        margin: 11%;
+        min-height: 11%;
+        border-radius: 200%;
+        height: 0%;
+        z-index: -1;
+        position: relative;
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.29);
+    }
+
+    .logo-udes {
+        margin-top: 0px;
+        margin-left: 0px;
+        max-width: 90px;
+        min-height: 90px;
+        max-height: 90px;
+        border-radius: 10px;
+        float: none;
+        z-index: 1;
+        box-shadow: none;
+    }
+
+    .logo-site {
+        margin-top: 0px;
+        margin-left: 0px;
+        height: 90px;
+        max-width: 500px;
+        border-radius: 0px;
+        width: auto;
+        float: none;
+        z-index: 1;
+        box-shadow: none;
+    }
+
+    .logo-profile {
+        margin-top: 10px;
+        margin-left: 0px;
+        margin-right: 5%;
+        height: 70px;
+        max-width: 70px;
+        border-radius: 0px;
+        width: auto;
+        float: none;
+        z-index: 1;
+        box-shadow: none;
+    }
+
+    .logo-colone {
+        float: top;
+        z-index: -1;
+    }
+
+    .pop-up-notification-colonne {
+        text-align: center;
+        margin-left: 60%;
+        float: left;
+        width: 0%;
+        height: 0%;
+        z-index: 1;
+    }
+
+    .pop-up-notification {
+        display: grid;
+        place-items: center;
+
+        color: #e8e8e8;
+        border-radius: 30px;
+        background: #df1414;
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.66);
+
+        min-width: 30px;
+        min-height: 30px;
+        max-width: 30px;
+        max-height: 30px;
+
+        z-index: 1;
+    }
+
+    .banderole {
+        background-color: #00a556;
+        max-height: 90px;
+        min-height: 90px;
+        margin-top: 0.5%;
+        margin-right: 0.5%;
+        margin-left: 0.5%;
+        border-radius: 10px;
+        box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.29);
+    }
+
+    a {
+        text-decoration: none;
+        color: #3d3d3d;
+    }
+
+    a:link {
+        text-decoration: none;
+        color: #3d3d3d;
+    }
+
+    a:visited {
+        text-decoration: none;
+        color: #3d3d3d;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #3d3d3d;
+    }
+
+    a:active {
+        text-decoration: none;
+        color: #3d3d3d;
+    }
+
+    .col-container {
+        height: 100%
+    }
+
+    .col-1 {
+        background-color: #e8e8e8;
+        float: left;
+        width: 14%;
+        height: 87%;
+        margin: 0.5%;
+        border-radius: 10px;
+    }
+    .col-2 {
+        text-align: center;
+        float: left;
+        width: 50%;
+        height: 87%;
+        margin-top: 0.5%;
+        margin-bottom: 0.5%;
+        border-radius: 10px;
+    }
+
+    .col-3 {
+        background-color: #e8e8e8;
+        width: 34%;
+        float: left;
+        height: 87%;
+        margin: 0.5%;
+        border-radius: 10px;
+        overflow-y: auto;
+    }
+
+
+    .container-notification{
+        text-align: center;
+    }
+
+    .center-grid {
+        float: left;
+        width: 20%;
+    }
+
+    .cadre-notif {
+        border: 1px solid darkgray;
+        border-radius: 10px;
+        display: flex;
+        height: 20%;
+        width: 100%;
+    }
+
+    @media only screen and (max-width: 760px) {
+        [class*="col-"] {
+            border-bottom-style: solid;
+            border-bottom-width: medium;
             width: 100%;
         }
+    }
 
-        table {
-            width: 100%;
-            font-family: "Franklin Gothic Book", serif;
-            color: #3d3d3d;
-            font-size: 105%;
-        }
+</style>
 
-        td {
-            border-radius: 10px;
-            height: 8rem;
-            width: 99%;
-            text-align: center;
-        }
+<script type = "text/babel">
 
-        td:hover {
-            background-color: #d8d8d8;
-        }
+    const rootElement = document.getElementById('root')
 
-        tr {
-            width: 100%;
-        }
+    // creation des images
 
-        td:empty {
-            display: none;
-            height: 0%
-        }
+    const imageUdeSElement =
+        <img className = "logo-udes" src="img/udes.png" alt="logo-universite">
+        </img>
 
-        img {
-            margin: 11%;
-            min-height: 11%;
-            border-radius: 200%;
-            height: 0%;
-            z-index: -1;
-            position: relative;
-            box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.29);
-        }
+    const imageSiteElement =
+        <img className = "logo-site" src="img/logo2.png" alt="logo-universite">
+        </img>
 
-        .logo-udes {
-            margin-top: 0px;
-            margin-left: 0px;
-            max-width: 90px;
-            min-height: 90px;
-            max-height: 90px;
-            border-radius: 10px;
-            float: none;
-            z-index: 1;
-            box-shadow: none;
-        }
+    const nomutilisateurElement =
+        <a data-target="user-session" id="user-session-dropdown" className="dropdown-trigger">
+            <p className="p-banderole">
+                Utilisateur
+            </p>
+        </a>
 
-        .logo-site {
-            margin-top: 0px;
-            margin-left: 0px;
-            height: 90px;
-            max-width: 500px;
-            border-radius: 0px;
-            width: auto;
-            float: none;
-            z-index: 1;
-            box-shadow: none;
-        }
+    const imageProfileElement =
+        <img className = "logo-profile" src="img/profile.png" alt="logo-universite">
+        </img>
 
-        .logo-colone {
-            float: top;
-            z-index: -1;
-        }
+    // creation de la banderole
 
-        .pop-up-notification-colonne {
-            text-align: center;
-            margin-left: 60%;
-            float: left;
-            width: 0%;
-            height: 0%;
-            z-index: 1;
-        }
-
-        .pop-up-notification {
-            display: grid;
-            place-items: center;
-
-            color: #e8e8e8;
-            border-radius: 30px;
-            background: #df1414;
-            box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.66);
-
-            min-width: 30px;
-            min-height: 30px;
-            max-width: 30px;
-            max-height: 30px;
-
-            z-index: 1;
-        }
-
-        .banderole {
-            background-color: #00a556;
-            max-height: 90px;
-            min-height: 90px;
-            margin-top: 0.5%;
-            margin-right: 0.5%;
-            margin-left: 0.5%;
-            border-radius: 10px;
-            box-shadow: -5px 5px 10px rgba(0, 0, 0, 0.29);
-        }
-
-        a {
-            text-decoration: none;
-            color: #3d3d3d;
-        }
-
-        a:link {
-            text-decoration: none;
-            color: #3d3d3d;
-        }
-
-        a:visited {
-            text-decoration: none;
-            color: #3d3d3d;
-        }
-
-        a:hover {
-            text-decoration: none;
-            color: #3d3d3d;
-        }
-
-        a:active {
-            text-decoration: none;
-            color: #3d3d3d;
-        }
-
-        .col-container {
-            height: 100%
-        }
-
-        .col-1 {
-            background-color: #e8e8e8;
-            float: left;
-            width: 14%;
-            height: 87%;
-            margin: 0.5%;
-            border-radius: 10px;
-        }
-        .col-2 {
-            text-align: center;
-            float: left;
-            width: 50%;
-            height: 87%;
-            margin-top: 0.5%;
-            margin-bottom: 0.5%;
-            border-radius: 10px;
-        }
-
-        .col-3 {
-            background-color: #e8e8e8;
-            width: 34%;
-            float: left;
-            height: 87%;
-            margin: 0.5%;
-            border-radius: 10px;
-            overflow-y: auto;
-        }
-
-
-        .container-notification{
-            text-align: center;
-        }
-
-        .center-grid {
-            float: left;
-            width: 20%;
-        }
-
-        .cadre-notif {
-            border: 1px solid darkgray;
-            border-radius: 10px;
-            display: flex;
-            height: 20%;
-            width: 100%;
-        }
-
-        @media only screen and (max-width: 760px) {
-            [class*="col-"] {
-                border-bottom-style: solid;
-                border-bottom-width: medium;
-                width: 100%;
-            }
-        }
-
-    </style>
-
-    <script type = "text/babel">
-
-        const rootElement = document.getElementById('root')
-
-        // creation des images
-
-        const imageUdeSElement =
-            <img className = "logo-udes" src="img/udes.png" alt="logo-universite">
-            </img>
-
-        const imageSiteElement =
-            <img className = "logo-site" src="img/logo2.png" alt="logo-universite">
-            </img>
-
-        const nomutilisateur =
-            <a data-target="user-session" id="user-session-dropdown" className="dropdown-trigger">Utilisateur</a>
-
-        // creation de la banderole
-
-        const banderoleElement =
-            <div className = "banderole" style = {{height: '90px'}}>
-                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'left'}}>
-                    {imageUdeSElement}
-                </div>
-                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'center'}}>
-                    {imageSiteElement}
-                </div>
-                <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'right'}}>
-                    {nomutilisateur}
-                </div>
+    const banderoleElement =
+        <div className = "banderole" style = {{height: '90px'}}>
+            <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'left'}}>
+                {imageUdeSElement}
             </div>
+            <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'center'}}>
+                {imageSiteElement}
+            </div>
+            <div className="col-2" style = {{margin: '0px', height: '90px', width: '28%', textAlign: 'right'}}>
+                {imageProfileElement}
+            </div>
+            <div className="col-2" style = {{margin: '0px', height: '90px', width: '5%', textAlign: 'left'}}>
+                {nomutilisateurElement}
+            </div>
+        </div>
 
         // creation des etats
 
@@ -968,13 +998,13 @@
 
         function TestFunction(){
             <jsp:useBean id="apilink" scope="request" class="main.PortailAPILink"/>
-            ReceptionNotification("<%=apilink.getExpediteur()%>", "<%=apilink.getDate()%>","<%=apilink.getTitre()%>","<%=apilink.getDescription()%>","https://monportail.usherbrooke.ca");
+            ReceptionNotification("<%=apilink.getExpediteur()%>", "<%=apilink.getDate()%>","<%=apilink.getTitre()%>","<%=apilink.getDescription()%>","<%=apilink.getLink()%>");
         }
 
         function AfficherNotification() {
             for (i = 0; i < stateIndexArrayNotification.nombreNotification; i++) {
                 idRow = 'td-'+i
-                document.getElementById(idRow).innerHTML = '<button class="boutton-notification" onclick="window.open(arrayNotification[i].link)">' + arrayNotification[i].expediteur + ': ' + arrayNotification[i].titre + '<br>' + '<br>' + arrayNotification[i].description + '<br>' + '<br>' + arrayNotification[i].date +'</button>'
+                document.getElementById(idRow).innerHTML = '<button class="boutton-notification" onclick=window.open("' + arrayNotification[i].link + '")>' + arrayNotification[i].expediteur + ': ' + arrayNotification[i].titre + '<br>' + '<br>' + arrayNotification[i].description + '<br>' + '<br>' + arrayNotification[i].date + '</button>'
             }
         }
 

@@ -29,6 +29,12 @@
         font-size: 105%;
     }
 
+    .p-banderole {
+        color: #e8e8e8;
+        width: 0%;
+        z-index: 1;
+    }
+
     button {
         font-family: "Franklin Gothic Book", serif;
         color: #3d3d3d;
@@ -110,6 +116,19 @@
         margin-left: 0px;
         height: 90px;
         max-width: 500px;
+        border-radius: 0px;
+        width: auto;
+        float: none;
+        z-index: 1;
+        box-shadow: none;
+    }
+
+    .logo-profile {
+        margin-top: 10px;
+        margin-left: 0px;
+        margin-right: 5%;
+        height: 70px;
+        max-width: 70px;
         border-radius: 0px;
         width: auto;
         float: none;
@@ -258,8 +277,16 @@
         <img className = "logo-site" src="img/logo2.png" alt="logo-universite">
         </img>
 
-    const nomutilisateur =
-        <a data-target="user-session" id="user-session-dropdown" className="dropdown-trigger">Utilisateur</a>
+    const nomutilisateurElement =
+        <a data-target="user-session" id="user-session-dropdown" className="dropdown-trigger">
+            <p className="p-banderole">
+                Utilisateur
+            </p>
+        </a>
+
+    const imageProfileElement =
+        <img className = "logo-profile" src="img/profile.png" alt="logo-universite">
+        </img>
 
     // creation de la banderole
 
@@ -271,8 +298,11 @@
             <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'center'}}>
                 {imageSiteElement}
             </div>
-            <div className="col-2" style = {{margin: '0px', height: '90px', width: '33%', textAlign: 'right'}}>
-                {nomutilisateur}
+            <div className="col-2" style = {{margin: '0px', height: '90px', width: '28%', textAlign: 'right'}}>
+                {imageProfileElement}
+            </div>
+            <div className="col-2" style = {{margin: '0px', height: '90px', width: '5%', textAlign: 'left'}}>
+                {nomutilisateurElement}
             </div>
         </div>
 
