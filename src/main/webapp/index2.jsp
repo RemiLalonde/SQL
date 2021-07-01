@@ -1,3 +1,4 @@
+<%@ page import="java.sql.SQLException" %>
 <head>
     <!-- Barre de titre -->
     <title>Hub UdeS</title>
@@ -997,8 +998,8 @@
         i = 0;
 
         function TestFunction(){
-            <jsp:useBean id="apilink" scope="request" class="main.PortailAPILink"/>
-            ReceptionNotification("<%=apilink.getExpediteur()%>", "<%=apilink.getDate()%>","<%=apilink.getTitre()%>","<%=apilink.getDescription()%>","<%=apilink.getLink()%>");
+            <jsp:useBean id="apiLink" scope="request" class="main.PortailAPILink"/>
+            ReceptionNotification("<%=apiLink.getExpediteur()%>", "<%=apiLink.getDate()%>","<%=apiLink.getTitre()%>","<%=apiLink.getDescription()%>","<%=apiLink.getLink()%>");
         }
 
         function AfficherNotification() {

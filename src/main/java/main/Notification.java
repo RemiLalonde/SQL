@@ -38,6 +38,17 @@ public class Notification {
             e.printStackTrace();
         }
     }
+    public ResultSet select(String SQLcommand){
+        try{
+            Connection conn = DriverManager.getConnection(url,user,password);
+            PreparedStatement st = conn.prepareStatement(SQLcommand);
+            ResultSet result = st.executeQuery();
+            return result;
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
+        return null;
+    }
     public void setDate(String date){
         this.date = date;
     }
