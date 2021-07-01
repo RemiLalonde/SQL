@@ -14,6 +14,7 @@ public class PortailAPILink {
     public String description = "nouvelle reunion a 15h le 2021-06-28 avec le groupe ProjetS3";
     public String titre = "nouvelle reunion";
     public String link = "https://teams.microsoft.com/_?culture=en-ca&country=CA&lm=deeplink&lmsrc=NeutralHomePageWeb&cmpid=WebSignIn";
+    public boolean first = true;
 
     public void getEmails(String json) throws IOException, SQLException {
         for(JsonElement e : JsonParser.parseString(json).getAsJsonArray()){
@@ -24,7 +25,12 @@ public class PortailAPILink {
     }
 
     public String getExpediteur(){
-        return this.expediteur;
+        if(first) {
+            first = !first;
+            return this.expediteur;
+        }else{
+            return "NON YOU WRONG";
+        }
     }
 
     public String getDate(){

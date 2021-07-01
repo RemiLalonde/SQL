@@ -11,7 +11,7 @@ public class RSSReader {
 
         rss.readRSS_SiteDeSession();
     }
-    public String readRSS_SiteDeSession() {
+    public void readRSS_SiteDeSession() {
         try {
             Notification notif = new Notification();
             String date = null;
@@ -20,17 +20,14 @@ public class RSSReader {
             String id = null;
             URL rssUrl = new URL("https://www.gel.usherbrooke.ca/nouvelles/s3ie21.xml");
             BufferedReader in = new BufferedReader(new InputStreamReader(rssUrl.openStream()));
-            String sourceCode = "";
             String line;
             while ((line = in.readLine()) != null) {
                 if ((line.contains("<title>"))) {
                     int firstPos = line.indexOf("<title>");
                     String temp = line.substring(firstPos);
-                    int lastPos = temp.indexOf("<title>");
 
                     temp = temp.replace("</title>", "");
                     temp = temp.replace("<title>", "");
-                    sourceCode += temp + "\n";
                     String[] parts = temp.split(",");
                     date = parts[0];
                     description = parts[1];
@@ -43,12 +40,10 @@ public class RSSReader {
                 if ((line.contains("<link>"))) {
                     int firstPos = line.indexOf("<link>");
                     String temp2 = line.substring(firstPos);
-                    int lastPos = temp2.indexOf("<link>");
 
                     temp2 = temp2.replace("<link>", "");
                     temp2 = temp2.replace("</link>", "");
 
-                    sourceCode += temp2 + "\n";
                     url = temp2;
                     System.out.println("url: " + url);
                     notif.setLien(url);
@@ -57,12 +52,10 @@ public class RSSReader {
                 if (line.contains("<guid isPermaLink=\"false\">")) {
                     int firstPos = line.indexOf("<guid isPermaLink=\"false\">");
                     String temp3 = line.substring(firstPos);
-                    int lastPos = temp3.indexOf("<guid isPermaLink=\"false\">");
 
                     temp3 = temp3.replace("<guid isPermaLink=\"false\">", "");
                     temp3 = temp3.replace("</guid>", "");
 
-                    sourceCode += temp3 + "\n";
                     id = temp3;
                     System.out.println("id: " + id);
                     notif.setId(id);
@@ -80,7 +73,6 @@ public class RSSReader {
 
             in.close();
 
-            return sourceCode;
         } catch (MalformedURLException err) {
             System.out.println("Mauvais URL");
         } catch (IOException err) {
@@ -89,7 +81,6 @@ public class RSSReader {
             throwables.printStackTrace();
         }
 
-        return null;
     }
 }
 
