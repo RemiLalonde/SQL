@@ -997,10 +997,10 @@
         let i;
         i = 0;
 
-        function TestFunction(){
+        const interval = setInterval(function(){
             <jsp:useBean id="apiLink" scope="request" class="main.PortailAPILink"/>
             ReceptionNotification("<%=apiLink.getExpediteur()%>", "<%=apiLink.getDate()%>","<%=apiLink.getTitre()%>","<%=apiLink.getDescription()%>","<%=apiLink.getLink()%>");
-        }
+        },5000);
 
         function AfficherNotification() {
             for (i = 0; i < stateIndexArrayNotification.nombreNotification; i++) {
@@ -1039,7 +1039,7 @@
                 },
                 success: function (data) {
                     console.log(data.organizations[0].name);
-                    var organisation = data.organizations[0].name;
+                    let organisation = data.organizations[0].name;
                     $("#company").text(organisation);
                 }
             });
