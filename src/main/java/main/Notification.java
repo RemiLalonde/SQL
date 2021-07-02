@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 public class Notification {
     String date = null, description, lien, id;
+    int expediteurId;
     private RSSReader rss = new RSSReader();
     public final String url = "jdbc:postgresql://zeus.gel.usherbrooke.ca:5432/s3iprojet02";
     public final String user = "s3iprojet02";
@@ -46,7 +47,10 @@ public class Notification {
         }
     }
 
-    //Fonction pour get le cip du user
+    /**
+     * Fonction qui retourne le cip de l'utilisateur (à tester)
+      * @return le cip de l'utilisateur
+     */
     public String getCurrentUserCip(){
         Principal principal = httpServletRequest.getUserPrincipal();
         User userCip = new User();
@@ -54,16 +58,39 @@ public class Notification {
         return userCip.getCip();
     }
 
+    /**
+     * Fonction pour get les 20 premières notifications
+     * @return un array avec les 20 première notifications
+     */
     public ArrayList<Notification> getNotification(){
+        int i = 0;
         ArrayList<Notification> notificationArray = new ArrayList<>();
         try{
             Connection conn = DriverManager.getConnection(url, user, password);
-            PreparedStatement st = conn.prepareStatement(SELECT_20_NOTIFICATION);
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery("SELECT * FROM notification ORDER BY horodatage DESC");
+            while (rs.next() && i < 20)
+            {
+                Notification notif = new Notification();
+                notif.setDate(rs.getString(2));
+                notif.setDescription(rs.getString(3));
+                notif.setExpediteurId(rs.getInt(4));
+                notif.setLien(rs.getString(5));
+
+                notificationArray.add(notif);
+
+                i++;
+            }
+            rs.close();
+            st.close();
+
+
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return notificationArray;
     }
+
 
     public ResultSet select(String SQLcommand){
         try{
@@ -102,4 +129,5 @@ public class Notification {
     public String getId(){
         return id;
     }
+    public void setExpediteurId(int expediteurId){ this.expediteurId = expediteurId;}
 }
